@@ -1,6 +1,4 @@
 import { NextRequest, NextResponse } from "next/server"
-import { ReplitAgentHostingService } from "@/lib/replit-agent-hosting"
-
 export async function GET(
   request: NextRequest,
   { params }: { params: { agentId: string } }
