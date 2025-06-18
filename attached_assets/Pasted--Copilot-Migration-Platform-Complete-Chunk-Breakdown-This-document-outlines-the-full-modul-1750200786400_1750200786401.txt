@@ -1,0 +1,301 @@
+## 📦 Copilot Migration Platform - Complete Chunk Breakdown
+
+This document outlines the full modular build of the working prototype, broken into incremental, code-gen-friendly chunks. Each chunk includes a goal, prompt phrasing, implementation notes, and success criteria.
+
+---
+
+### 🔧 \[Chunk 1] - Legacy Bot Parser
+
+**Goal:** Extract intents, utterances, and response logic from `.json` or `.yaml` chatbot exports.
+
+**Prompt-style Description:**
+
+> Build a Python module `bot_parser.py` that accepts Power Virtual Agents or Dialogflow-style `.json` or `.yaml` exports. Extract and normalize:
+>
+> * Intent names and descriptions
+> * Utterance samples
+> * Static response messages
+
+**Includes:**
+
+* JSON/YAML parser
+* Normalized schema output
+* Sample `hr_bot_export.json`
+
+**Tech Notes:**
+
+* Use `pyyaml` and `json` modules
+* Output format: list of intents with metadata
+
+**Success Criteria:**
+
+* Print 3 intents in console from sample file
+
+---
+
+### 🔧 \[Chunk 2] - Copilot Skill Generator (Static)
+
+**Goal:** Generate Copilot-style skill plans from parsed bot intents.
+
+**Prompt-style Description:**
+
+> Create a `generate_skill_plan(intent)` function that:
+>
+> * Infers user goal from intent name
+> * Recommends Copilot actions
+> * Outputs a JSON object with:
+>
+>   * Goal
+>   * Required tools
+>   * Expected system
+
+**Includes:**
+
+* Rule-based skill mapping
+* Hardcoded templates for HR, IT, Sales
+
+**Tech Notes:**
+
+* Store templates in `/config/skills_map.json`
+
+**Success Criteria:**
+
+* Generate 3 sample skill plans and export to console
+
+---
+
+### 🔧 \[Chunk 3] - Delta Scenario Engine (Static)
+
+**Goal:** Match intents to pre-defined delta scenarios and calculate theoretical ROI.
+
+**Prompt-style Description:**
+
+> Build `DeltaScenarioEngine` with methods to:
+>
+> * Load delta scenario templates from JSON
+> * Match relevant ones based on intent keywords
+> * Estimate impact (ROI, feasibility, business impact)
+
+**Includes:**
+
+* `scenarios_config.json`
+* ROI calculator helper function
+
+**Tech Notes:**
+
+* Data classes for `DeltaScenario`
+* Simple keyword match, no ML yet
+
+**Success Criteria:**
+
+* At least 2 valid delta scenarios generated per bot
+
+---
+
+### 🔧 \[Chunk 4] - Delta Scenario Renderer
+
+**Goal:** Show visual before/after transformation side-by-side in UI.
+
+**Prompt-style Description:**
+
+> Build `delta_showcase.py` (Streamlit):
+>
+> * Accept legacy and transformed agent metadata
+> * Render: classic vs Copilot agent behavior
+> * List delta benefits and ROI metrics
+
+**Includes:**
+
+* Streamlit layout code
+* Sample legacy + transformed scenario
+
+**Tech Notes:**
+
+* Use `streamlit-aggrid` or Markdown sections
+* Optional: Plotly for metric comparison
+
+**Success Criteria:**
+
+* View 2 bots with visual delta breakdown
+
+---
+
+### 🔧 \[Chunk 5] - LLM-Based Agent Blueprint Generator
+
+**Goal:** Use GPT-3.5 to generate complete agent blueprints from parsed intents.
+
+**Prompt-style Description:**
+
+> Write `ai_transformer.py` that uses OpenAI’s API to:
+>
+> * Transform legacy intent + bot context
+> * Output system prompt, tools, agent flow
+
+**Includes:**
+
+* Prompt templates
+* Retry logic for OpenAI API
+* Model selector (`gpt-3.5` default)
+
+**Tech Notes:**
+
+* Use `openai` Python package
+* Max token management
+
+**Success Criteria:**
+
+* Print 1 system prompt and tool list per intent
+
+---
+
+### 🔧 \[Chunk 6] - Copilot Agent Base Class
+
+**Goal:** Create base agent framework using LangChain.
+
+**Prompt-style Description:**
+
+> Create class `CopilotAgent`:
+>
+> * Wraps LangChain's `initialize_agent`
+> * Uses memory and tool list
+> * Supports `solve_delta_scenario(input, context)`
+
+**Includes:**
+
+* LangChain tool registry
+* Basic mock tools: calendar, email, KB search
+
+**Tech Notes:**
+
+* Agent type: `conversational-react-description`
+
+**Success Criteria:**
+
+* Agent responds to a mock query and shows 2 steps
+
+---
+
+### 🔧 \[Chunk 7] - Proactive Leave Agent
+
+**Goal:** Create domain-specific AI agent for leave optimization.
+
+**Prompt-style Description:**
+
+> Inherit `CopilotAgent` as `ProactiveLeaveAgent`:
+>
+> * Use leave-specific tools (calendar check, coverage)
+> * Inject prompt: suggest optimal dates, flag risks
+
+**Includes:**
+
+* Tools: `check_calendar`, `analyze_patterns`, `draft_email`
+* Prompt with conditional logic
+
+**Tech Notes:**
+
+* Store HR scenarios in `/sample-data/enterprise-context/`
+
+**Success Criteria:**
+
+* Agent gives leave suggestion with rationale
+
+---
+
+### 🔧 \[Chunk 8] - IT Helpdesk Agent
+
+**Goal:** Add second agent to show orchestration and fix logic.
+
+**Prompt-style Description:**
+
+> Create `ITHelpdeskAgent` with tools for:
+>
+> * Check system health
+> * Search similar cases
+> * Recommend or apply fix
+
+**Includes:**
+
+* Diagnostics generator (via LLM)
+* Fix simulation tool
+
+**Tech Notes:**
+
+* Simulate alerts using `mock_enterprise_data.py`
+
+**Success Criteria:**
+
+* Output includes diagnostics + resolution steps
+
+---
+
+### 🔧 \[Chunk 9] - Live Agent Demo UI
+
+**Goal:** Create real-time chat UI to interact with agents.
+
+**Prompt-style Description:**
+
+> Build `live_agent_demo.py` in Streamlit:
+>
+> * Dropdown to pick agent
+> * Input field for query
+> * Displays full LLM response
+> * List tools used and actions taken
+
+**Includes:**
+
+* Session state for agent persistence
+* Loading spinner
+
+**Tech Notes:**
+
+* Show markdown-formatted LLM reply
+
+**Success Criteria:**
+
+* 2 agents respond live to simulated queries
+
+---
+
+### 🔧 \[Chunk 10] - Analytics & ROI Module
+
+**Goal:** Calculate and visualize business value of agent transformations.
+
+**Prompt-style Description:**
+
+> Build `platform_analytics.py`:
+>
+> * Accept scenario list
+> * Compute:
+>
+>   * Total time saved
+>   * 3-year ROI
+>   * Payback period
+> * Render via Streamlit + Plotly
+
+**Includes:**
+
+* ROI calculator
+* Sample data for 3 bots
+
+**Tech Notes:**
+
+* Use `pandas` and `plotly`
+
+**Success Criteria:**
+
+* Dashboard with 3 KPIs + 1 bar chart
+
+---
+
+### 🔜 Additional Chunks (Planned Next)
+
+11. File Upload + Bot Artifact Validator
+12. Multi-Agent Registry & Router
+13. Agent Logs Viewer (for debug transparency)
+14. Microsoft Graph Stub Connector
+15. Azure AD Login Mock (Auth Simulation)
+16. Plugin SDK for Teams/Outlook Deployment
+17. CLI Wrapper Tool (e.g., `copilot-migrate`)
+18. Test Harness for Regression Testing
+19. GraphQL/REST API wrapper (optional SaaS)
+20. AI Copilot Configurator (multi-intent persona designer)

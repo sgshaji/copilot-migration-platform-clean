@@ -1,0 +1,109 @@
+6hook.js:608 You must define a function MonacoEnvironment.getWorkerUrl or MonacoEnvironment.getWorker
+overrideMethod @ hook.js:608Understand this warning
+2hook.js:608 Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+overrideMethod @ hook.js:608Understand this warning
+9hook.js:608 You must define a function MonacoEnvironment.getWorkerUrl or MonacoEnvironment.getWorker
+overrideMethod @ hook.js:608Understand this warning
+2hook.js:608 Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+overrideMethod @ hook.js:608Understand this warning
+2hook.js:608 You must define a function MonacoEnvironment.getWorkerUrl or MonacoEnvironment.getWorker
+overrideMethod @ hook.js:608Understand this warning
+2hook.js:608 Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+overrideMethod @ hook.js:608Understand this warning
+hook.js:608 You must define a function MonacoEnvironment.getWorkerUrl or MonacoEnvironment.getWorker
+overrideMethod @ hook.js:608Understand this warning
+hook.js:608 Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+overrideMethod @ hook.js:608Understand this warning
+6hook.js:608 You must define a function MonacoEnvironment.getWorkerUrl or MonacoEnvironment.getWorker
+overrideMethod @ hook.js:608Understand this warning
+20[Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See <URL> for more details.Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+humanWritingReport.common.chunk.js:1 [Violation] Permissions policy violation: The Clipboard API has been blocked because of a permissions policy applied to the current document. See https://goo.gl/EuHzyv for more details.
+(anonymous) @ humanWritingReport.common.chunk.js:1Understand this error
+3hook.js:608 Warning: Missing `Description` or `aria-describedby={undefined}` for {DialogContent}.
+overrideMethod @ hook.js:608Understand this warning
+1025The resource <URL> was preloaded using link preload but not used within a few seconds from the window's load event. Please make sure it has an appropriate `as` value and it is preloaded intentionally.Understand this warning
+VM945 3162-30ce81249dd550e9.js:1 OPENAI_API_KEY cannot be accessed on the client.
+console.<computed> @ VM945 3162-30ce81249dd550e9.js:1Understand this warning
+VM945 3162-30ce81249dd550e9.js:1 HUGGINGFACE_API_KEY cannot be accessed on the client.
+console.<computed> @ VM945 3162-30ce81249dd550e9.js:1Understand this warning
+VM945 3162-30ce81249dd550e9.js:1 🤖 AI Transformer initialized - OpenAI: false, HuggingFace: false
+VM945 3162-30ce81249dd550e9.js:1 BOTPRESS_TOKEN cannot be accessed on the client.
+console.<computed> @ VM945 3162-30ce81249dd550e9.js:1Understand this warning
+VM945 3162-30ce81249dd550e9.js:1 🤖 Botpress Service initialized - Token: Available
+VM945 3162-30ce81249dd550e9.js:1 🤗 Hugging Face AI Service: Connected with your FREE API key!
+17087 log entries are not shown.Understand this warning
+VM945 3162-30ce81249dd550e9.js:1 🤗 Using your FREE Hugging Face AI for real bot analysis...
+VM945 3162-30ce81249dd550e9.js:1 Defaulting to 'auto' which will select the first provider available for the model, sorted by the user's order in https://hf.co/settings/inference-providers.
+VM945 3162-30ce81249dd550e9.js:1 Hugging Face generation failed: InputError: No Inference Provider available for model microsoft/DialoGPT-large.
+    at p (getInferenceProviderMapping.js:107:15)
+    at async Xn (textGeneration.js:8:22)
+    at async LangChainHuggingFaceService.generateAIAnalysis (30edbd25-1cab-4f57-9a3c-f6f699098322:50:30)
+    at async LangChainHuggingFaceService.analyzeBotForMigration (30edbd25-1cab-4f57-9a3c-f6f699098322:37:24)
+    at async startMigration (55cd2857-3697-4ee5-8c6d-c8335a7809d5:145:30)
+console.<computed> @ VM945 3162-30ce81249dd550e9.js:1
+generateAIAnalysis @ 30edbd25-1cab-4f57-9a3c-f6f699098322:64
+await in generateAIAnalysis
+analyzeBotForMigration @ 30edbd25-1cab-4f57-9a3c-f6f699098322:37
+startMigration @ 55cd2857-3697-4ee5-8c6d-c8335a7809d5:145Understand this warning
+VM945 3162-30ce81249dd550e9.js:1 🚀 Deploying to Botpress...
+VM945 3162-30ce81249dd550e9.js:1 🚀 Server-side deployment starting...
+VM945 3162-30ce81249dd550e9.js:1 📊 Bot analysis: {name: 'HR Leave Assistant', platform: 'Microsoft Bot Framework', intents: Array(5), entities: Array(5), responses: Array(4), …}
+VM945 3162-30ce81249dd550e9.js:1 🔑 Botpress token found - will create webhook integration
+VM945 3162-30ce81249dd550e9.js:1 🚀 Starting webhook-based deployment...
+VM945 3162-30ce81249dd550e9.js:1 🔗 Creating webhook integration...
+VM945 3162-30ce81249dd550e9.js:1 📊 Input data: {botAnalysis: {…}, agentBlueprint: null}
+VM945 3162-30ce81249dd550e9.js:1 📦 Analyzing bot configuration...
+VM945 3162-30ce81249dd550e9.js:1 📦 Creating webhook endpoint...
+VM945 3162-30ce81249dd550e9.js:1 📦 Setting up AI integration...
+VM945 3162-30ce81249dd550e9.js:1 📦 Configuring response handlers...
+VM945 3162-30ce81249dd550e9.js:1 📦 Testing connectivity...
+VM945 3162-30ce81249dd550e9.js:1 📦 Deployment complete!
+VM945 3162-30ce81249dd550e9.js:1 🆔 Generated agent ID: agent_1750197931365
+VM945 3162-30ce81249dd550e9.js:1 🔗 Generated webhook URL: http://localhost:3000/api/botpress-webhook/agent_1750197931365
+VM945 3162-30ce81249dd550e9.js:1 🤖 Created agent object: {id: 'agent_1750197931365', name: 'HR Leave Assistant', url: 'http://localhost:3000/chat/agent_1750197931365', status: 'active', capabilities: Array(3), …}
+VM945 3162-30ce81249dd550e9.js:1 💾 Stored configuration for agent agent_1750197931365
+VM945 3162-30ce81249dd550e9.js:1 ✅ Webhook integration created successfully
+VM945 3162-30ce81249dd550e9.js:1 📊 Service result: {success: true, agent: {…}, migrationInstructions: {…}}
+VM945 3162-30ce81249dd550e9.js:1 ✅ Deployment successful!
+VM945 3162-30ce81249dd550e9.js:1 🌐 Agent URL: http://localhost:3000/chat/agent_1750197931365
+VM945 3162-30ce81249dd550e9.js:1 📊 Deployment result: {success: true, agent: {…}, migrationInstructions: {…}}
+VM945 3162-30ce81249dd550e9.js:1 ✅ Agent deployed: http://localhost:3000/chat/agent_1750197931365
+VM945 3162-30ce81249dd550e9.js:1 🔗 Agent details: {id: 'agent_1750197931365', name: 'HR Leave Assistant', url: 'http://localhost:3000/chat/agent_1750197931365', status: 'active', capabilities: Array(3), …}

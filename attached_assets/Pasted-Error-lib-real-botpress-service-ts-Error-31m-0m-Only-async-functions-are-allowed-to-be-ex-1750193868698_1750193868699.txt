@@ -1,0 +1,264 @@
+Error: ./lib/real-botpress-service.ts
+Error:   [31m×[0m Only async functions are allowed to be exported in a "use server" file.
+  [31m│[0m 
+     ╭─[[36;1;4m/home/runner/workspace/lib/real-botpress-service.ts[0m:29:1]
+ [2m 26[0m │       }
+ [2m 27[0m │     }
+ [2m 28[0m │     
+ [2m 29[0m │ [35;1m╭[0m[35;1m─[0m[35;1m▶[0m export class RealBotpressService {
+ [2m 30[0m │ [35;1m│[0m     private token: string | null = null
+ [2m 31[0m │ [35;1m│[0m   
+ [2m 32[0m │ [35;1m│[0m     constructor() {
+ [2m 33[0m │ [35;1m│[0m       this.token = process.env.BOTPRESS_TOKEN || null
+ [2m 34[0m │ [35;1m│[0m       if (this.token) {
+ [2m 35[0m │ [35;1m│[0m         console.log("🔑 Botpress token found - will create webhook integration")
+ [2m 36[0m │ [35;1m│[0m       } else {
+ [2m 37[0m │ [35;1m│[0m         console.log("⚠️ No Botpress token - will use demo mode")
+ [2m 38[0m │ [35;1m│[0m       }
+ [2m 39[0m │ [35;1m│[0m     }
+ [2m 40[0m │ [35;1m│[0m   
+ [2m 41[0m │ [35;1m│[0m     async deployAgent(botAnalysis: any, agentBlueprint: any): Promise<RealBotpressDeployment> {
+ [2m 42[0m │ [35;1m│[0m       try {
+ [2m 43[0m │ [35;1m│[0m         console.log("🚀 Starting webhook-based deployment...")
+ [2m 44[0m │ [35;1m│[0m   
+ [2m 45[0m │ [35;1m│[0m         if (this.token) {
+ [2m 46[0m │ [35;1m│[0m           return await this.createWebhookIntegration(botAnalysis, agentBlueprint)
+ [2m 47[0m │ [35;1m│[0m         } else {
+ [2m 48[0m │ [35;1m│[0m           return await this.createDemoAgent(botAnalysis, agentBlueprint)
+ [2m 49[0m │ [35;1m│[0m         }
+ [2m 50[0m │ [35;1m│[0m       } catch (error) {
+ [2m 51[0m │ [35;1m│[0m         console.error("❌ Deployment failed:", error)
+ [2m 52[0m │ [35;1m│[0m         console.log("🔄 Falling back to demo mode...")
+ [2m 53[0m │ [35;1m│[0m         return await this.createDemoAgent(botAnalysis, agentBlueprint)
+ [2m 54[0m │ [35;1m│[0m       }
+ [2m 55[0m │ [35;1m│[0m     }
+ [2m 56[0m │ [35;1m│[0m   
+ [2m 57[0m │ [35;1m│[0m     private async createWebhookIntegration(botAnalysis: any, agentBlueprint: any): Promise<RealBotpressDeployment> {
+ [2m 58[0m │ [35;1m│[0m       console.log("🔗 Creating webhook integration...")
+ [2m 59[0m │ [35;1m│[0m       console.log("📊 Input data:", { botAnalysis, agentBlueprint })
+ [2m 60[0m │ [35;1m│[0m   
+ [2m 61[0m │ [35;1m│[0m       // Simulate deployment process
+ [2m 62[0m │ [35;1m│[0m       await this.simulateDeployment()
+ [2m 63[0m │ [35;1m│[0m   
+ [2m 64[0m │ [35;1m│[0m       const agentId = `agent_${Date.now()}`
+ [2m 65[0m │ [35;1m│[0m       const webhookUrl = `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/api/botpress-webhook/${agentId}`
+ [2m 66[0m │ [35;1m│[0m   
+ [2m 67[0m │ [35;1m│[0m       console.log("🆔 Generated agent ID:", agentId)
+ [2m 68[0m │ [35;1m│[0m       console.log("🔗 Generated webhook URL:", webhookUrl)
+ [2m 69[0m │ [35;1m│[0m   
+ [2m 70[0m │ [35;1m│[0m       // Create webhook-ready agent
+ [2m 71[0m │ [35;1m│[0m       const agent: RealBotpressAgent = {
+ [2m 72[0m │ [35;1m│[0m         id: agentId,
+ [2m 73[0m │ [35;1m│[0m         name: botAnalysis.name,
+ [2m 74[0m │ [35;1m│[0m         url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/chat/${agentId}`,
+ [2m 75[0m │ [35;1m│[0m         status: "active",
+ [2m 76[0m │ [35;1m│[0m         capabilities: this.getCapabilities(botAnalysis),
+ [2m 77[0m │ [35;1m│[0m         integrations: this.getIntegrations(botAnalysis),
+ [2m 78[0m │ [35;1m│[0m         createdAt: new Date().toISOString(),
+ [2m 79[0m │ [35;1m│[0m         botpressId: `webhook_${agentId}`,
+ [2m 80[0m │ [35;1m│[0m         webhookUrl: webhookUrl,
+ [2m 81[0m │ [35;1m│[0m         publicUrl: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/chat/${agentId}`,
+ [2m 82[0m │ [35;1m│[0m         deploymentType: "webhook",
+ [2m 83[0m │ [35;1m│[0m       }
+ [2m 84[0m │ [35;1m│[0m   
+ [2m 85[0m │ [35;1m│[0m       console.log("🤖 Created agent object:", agent)
+ [2m 86[0m │ [35;1m│[0m   
+ [2m 87[0m │ [35;1m│[0m       // Store agent configuration for webhook
+ [2m 88[0m │ [35;1m│[0m       await this.storeAgentConfig(agentId, botAnalysis, agentBlueprint)
+ [2m 89[0m │ [35;1m│[0m   
+ [2m 90[0m │ [35;1m│[0m       console.log("✅ Webhook integration created successfully")
+ [2m 91[0m │ [35;1m│[0m   
+ [2m 92[0m │ [35;1m│[0m       return {
+ [2m 93[0m │ [35;1m│[0m         success: true,
+ [2m 94[0m │ [35;1m│[0m         agent,
+ [2m 95[0m │ [35;1m│[0m         migrationInstructions: this.generateWebhookInstructions(botAnalysis, webhookUrl),
+ [2m 96[0m │ [35;1m│[0m       }
+ [2m 97[0m │ [35;1m│[0m     }
+ [2m 98[0m │ [35;1m│[0m   
+ [2m 99[0m │ [35;1m│[0m     private async createDemoAgent(botAnalysis: any, agentBlueprint: any): Promise<RealBotpressDeployment> {
+ [2m100[0m │ [35;1m│[0m       console.log("🆓 Creating demo agent...")
+ [2m101[0m │ [35;1m│[0m       console.log("📊 Input data:", { botAnalysis, agentBlueprint })
+ [2m102[0m │ [35;1m│[0m   
+ [2m103[0m │ [35;1m│[0m       await this.simulateDeployment()
+ [2m104[0m │ [35;1m│[0m   
+ [2m105[0m │ [35;1m│[0m       const agentId = `demo_${Date.now()}`
+ [2m106[0m │ [35;1m│[0m   
+ [2m107[0m │ [35;1m│[0m       console.log("🆔 Generated demo agent ID:", agentId)
+ [2m108[0m │ [35;1m│[0m   
+ [2m109[0m │ [35;1m│[0m       const agent: RealBotpressAgent = {
+ [2m110[0m │ [35;1m│[0m         id: agentId,
+ [2m111[0m │ [35;1m│[0m         name: botAnalysis.name,
+ [2m112[0m │ [35;1m│[0m         url: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/chat/${agentId}`,
+ [2m113[0m │ [35;1m│[0m         status: "active",
+ [2m114[0m │ [35;1m│[0m         capabilities: this.getCapabilities(botAnalysis),
+ [2m115[0m │ [35;1m│[0m         integrations: this.getIntegrations(botAnalysis),
+ [2m116[0m │ [35;1m│[0m         createdAt: new Date().toISOString(),
+ [2m117[0m │ [35;1m│[0m         botpressId: `demo_${agentId}`,
+ [2m118[0m │ [35;1m│[0m         webhookUrl: `/api/botpress-webhook/${agentId}`,
+ [2m119[0m │ [35;1m│[0m         publicUrl: `${process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000"}/chat/${agentId}`,
+ [2m120[0m │ [35;1m│[0m         deploymentType: "demo",
+ [2m121[0m │ [35;1m│[0m       }
+ [2m122[0m │ [35;1m│[0m   
+ [2m123[0m │ [35;1m│[0m       console.log("🤖 Created demo agent object:", agent)
+ [2m124[0m │ [35;1m│[0m   
+ [2m125[0m │ [35;1m│[0m       // Store agent configuration
+ [2m126[0m │ [35;1m│[0m       await this.storeAgentConfig(agentId, botAnalysis, agentBlueprint)
+ [2m127[0m │ [35;1m│[0m   
+ [2m128[0m │ [35;1m│[0m       console.log("✅ Demo agent created successfully")
+ [2m129[0m │ [35;1m│[0m   
+ [2m130[0m │ [35;1m│[0m       return {
+ [2m131[0m │ [35;1m│[0m         success: true,
+ [2m132[0m │ [35;1m│[0m         agent,
+ [2m133[0m │ [35;1m│[0m         migrationInstructions: this.generateDemoInstructions(botAnalysis),
+ [2m134[0m │ [35;1m│[0m       }
+ [2m135[0m │ [35;1m│[0m     }
+ [2m136[0m │ [35;1m│[0m   
+ [2m137[0m │ [35;1m│[0m     private async simulateDeployment(): Promise<void> {
+ [2m138[0m │ [35;1m│[0m       const steps = [
+ [2m139[0m │ [35;1m│[0m         "Analyzing bot configuration...",
+ [2m140[0m │ [35;1m│[0m         "Creating webhook endpoint...",
+ [2m141[0m │ [35;1m│[0m         "Setting up AI integration...",
+ [2m142[0m │ [35;1m│[0m         "Configuring response handlers...",
+ [2m143[0m │ [35;1m│[0m         "Testing connectivity...",
+ [2m144[0m │ [35;1m│[0m         "Deployment complete!",
+ [2m145[0m │ [35;1m│[0m       ]
+ [2m146[0m │ [35;1m│[0m   
+ [2m147[0m │ [35;1m│[0m       for (const step of steps) {
+ [2m148[0m │ [35;1m│[0m         console.log(`📦 ${step}`)
+ [2m149[0m │ [35;1m│[0m         await new Promise((resolve) => setTimeout(resolve, 500))
+ [2m150[0m │ [35;1m│[0m       }
+ [2m151[0m │ [35;1m│[0m     }
+ [2m152[0m │ [35;1m│[0m   
+ [2m153[0m │ [35;1m│[0m     private async storeAgentConfig(agentId: string, botAnalysis: any, agentBlueprint: any): Promise<void> {
+ [2m154[0m │ [35;1m│[0m       // In a real app, this would store in a database
+ [2m155[0m │ [35;1m│[0m       // For now, we'll store in memory/file system
+ [2m156[0m │ [35;1m│[0m       const config = {
+ [2m157[0m │ [35;1m│[0m         agentId,
+ [2m158[0m │ [35;1m│[0m         botAnalysis,
+ [2m159[0m │ [35;1m│[0m         agentBlueprint,
+ [2m160[0m │ [35;1m│[0m         domain: this.inferDomain(botAnalysis),
+ [2m161[0m │ [35;1m│[0m         systemPrompt: agentBlueprint?.systemPrompt || this.getDefaultSystemPrompt(botAnalysis),
+ [2m162[0m │ [35;1m│[0m         createdAt: new Date().toISOString(),
+ [2m163[0m │ [35;1m│[0m       }
+ [2m164[0m │ [35;1m│[0m   
+ [2m165[0m │ [35;1m│[0m       console.log(`💾 Stored configuration for agent ${agentId}`)
+ [2m166[0m │ [35;1m│[0m       // In production, save to database: await db.agents.create(config)
+ [2m167[0m │ [35;1m│[0m     }
+ [2m168[0m │ [35;1m│[0m   
+ [2m169[0m │ [35;1m│[0m     private generateWebhookInstructions(botAnalysis: any, webhookUrl: string) {
+ [2m170[0m │ [35;1m│[0m       return {
+ [2m171[0m │ [35;1m│[0m         microsoftSteps: [
+ [2m172[0m │ [35;1m│[0m           "Copy the webhook URL provided below",
+ [2m173[0m │ [35;1m│[0m           "Sign in to Microsoft Copilot Studio",
+ [2m174[0m │ [35;1m│[0m           "Create a new Copilot agent",
+ [2m175[0m │ [35;1m│[0m           "Go to Settings → Channels → Custom Website",
+ [2m176[0m │ [35;1m│[0m           "Add the webhook URL as an external endpoint",
+ [2m177[0m │ [35;1m│[0m           "Configure authentication if needed",
+ [2m178[0m │ [35;1m│[0m           "Test the integration",
+ [2m179[0m │ [35;1m│[0m           "Deploy to Microsoft Teams",
+ [2m180[0m │ [35;1m│[0m         ],
+ [2m181[0m │ [35;1m│[0m         botpressSteps: [
+ [2m182[0m │ [35;1m│[0m           "Sign in to your Botpress Cloud account",
+ [2m183[0m │ [35;1m│[0m           "Create a new bot or select existing bot",
+ [2m184[0m │ [35;1m│[0m           "Go to Integrations → Webhook",
+ [2m185[0m │ [35;1m│[0m           `Add this webhook URL: ${webhookUrl}`,
+ [2m186[0m │ [35;1m│[0m           "Configure the webhook to send messages to this endpoint",
+ [2m187[0m │ [35;1m│[0m           "Set up any required authentication headers",
+ [2m188[0m │ [35;1m│[0m           "Test the webhook connection",
+ [2m189[0m │ [35;1m│[0m           "Deploy your bot to desired channels",
+ [2m190[0m │ [35;1m│[0m         ],
+ [2m191[0m │ [35;1m│[0m         requiredKeys: [
+ [2m192[0m │ [35;1m│[0m           "Botpress Cloud Account (Free tier available)",
+ [2m193[0m │ [35;1m│[0m           "Microsoft Copilot Studio License (for Microsoft integration)",
+ [2m194[0m │ [35;1m│[0m           "Webhook endpoint access (provided below)",
+ [2m195[0m │ [35;1m│[0m         ],
+ [2m196[0m │ [35;1m│[0m         estimatedTime: "30 minutes for webhook setup, 2-4 hours for full Microsoft integration",
+ [2m197[0m │ [35;1m│[0m       }
+ [2m198[0m │ [35;1m│[0m     }
+ [2m199[0m │ [35;1m│[0m   
+ [2m200[0m │ [35;1m│[0m     private generateDemoInstructions(botAnalysis: any) {
+ [2m201[0m │ [35;1m│[0m       return {
+ [2m202[0m │ [35;1m│[0m         microsoftSteps: [
+ [2m203[0m │ [35;1m│[0m           "Get a Botpress Cloud account (free at botpress.com)",
+ [2m204[0m │ [35;1m│[0m           "Add your Botpress token to environment variables",
+ [2m205[0m │ [35;1m│[0m           "Re-run this migration for webhook integration",
+ [2m206[0m │ [35;1m│[0m           "Follow the webhook setup instructions",
+ [2m207[0m │ [35;1m│[0m           "Connect to Microsoft Copilot Studio",
+ [2m208[0m │ [35;1m│[0m           "Deploy to Microsoft Teams and other channels",
+ [2m209[0m │ [35;1m│[0m         ],
+ [2m210[0m │ [35;1m│[0m         botpressSteps: [
+ [2m211[0m │ [35;1m│[0m           "This is currently a demo agent",
+ [2m212[0m │ [35;1m│[0m           "To make it live, get a Botpress Cloud account",
+ [2m213[0m │ [35;1m│[0m           "Add BOTPRESS_TOKEN to your environment variables",
+ [2m214[0m │ [35;1m│[0m           "Re-run the migration for real deployment",
+ [2m215[0m │ [35;1m│[0m         ],
+ [2m216[0m │ [35;1m│[0m         requiredKeys: [
+ [2m217[0m │ [35;1m│[0m           "Botpress Cloud Account (Sign up free at botpress.com)",
+ [2m218[0m │ [35;1m│[0m           "Botpress API Token (from your Botpress dashboard)",
+ [2m219[0m │ [35;1m│[0m         ],
+ [2m220[0m │ [35;1m│[0m         estimatedTime: "5 minutes to get Botpress account, 30 minutes for full setup",
+ [2m221[0m │ [35;1m│[0m       }
+ [2m222[0m │ [35;1m│[0m     }
+ [2m223[0m │ [35;1m│[0m   
+ [2m224[0m │ [35;1m│[0m     private getCapabilities(botAnalysis: any): string[] {
+ [2m225[0m │ [35;1m│[0m       const domain = this.inferDomain(botAnalysis)
+ [2m226[0m │ [35;1m│[0m       const capabilitySets = {
+ [2m227[0m │ [35;1m│[0m         hr: ["Leave management", "Policy guidance", "Team coordination"],
+ [2m228[0m │ [35;1m│[0m         it: ["Issue resolution", "Access management", "System monitoring"],
+ [2m229[0m │ [35;1m│[0m         sales: ["Lead qualification", "Product information", "Demo scheduling"],
+ [2m230[0m │ [35;1m│[0m         default: ["Natural conversation", "Context awareness", "Smart responses"],
+ [2m231[0m │ [35;1m│[0m       }
+ [2m232[0m │ [35;1m│[0m       return capabilitySets[domain as keyof typeof capabilitySets] || capabilitySets.default
+ [2m233[0m │ [35;1m│[0m     }
+ [2m234[0m │ [35;1m│[0m   
+ [2m235[0m │ [35;1m│[0m     private getIntegrations(botAnalysis: any): string[] {
+ [2m236[0m │ [35;1m│[0m       const domain = this.inferDomain(botAnalysis)
+ [2m237[0m │ [35;1m│[0m       const integrationSets = {
+ [2m238[0m │ [35;1m│[0m         hr: ["Slack", "Microsoft Teams", "Google Calendar", "Webhook API"],
+ [2m239[0m │ [35;1m│[0m         it: ["Slack", "Microsoft Teams", "Jira", "ServiceNow API"],
+ [2m240[0m │ [35;1m│[0m         sales: ["Slack", "Microsoft Teams", "HubSpot", "Salesforce API"],
+ [2m241[0m │ [35;1m│[0m         default: ["Slack", "Microsoft Teams", "Webhook API"],
+ [2m242[0m │ [35;1m│[0m       }
+ [2m243[0m │ [35;1m│[0m       return integrationSets[domain as keyof typeof integrationSets] || integrationSets.default
+ [2m244[0m │ [35;1m│[0m     }
+ [2m245[0m │ [35;1m│[0m   
+ [2m246[0m │ [35;1m│[0m     private inferDomain(botAnalysis: any): string {
+ [2m247[0m │ [35;1m│[0m       const name = botAnalysis.name.toLowerCase()
+ [2m248[0m │ [35;1m│[0m       const intents = botAnalysis.intents.join(" ").toLowerCase()
+ [2m249[0m │ [35;1m│[0m   
+ [2m250[0m │ [35;1m│[0m       if (name.includes("hr") || intents.includes("leave") || intents.includes("vacation")) {
+ [2m251[0m │ [35;1m│[0m         return "hr"
+ [2m252[0m │ [35;1m│[0m       } else if (name.includes("it") || intents.includes("password") || intents.includes("technical")) {
+ [2m253[0m │ [35;1m│[0m         return "it"
+ [2m254[0m │ [35;1m│[0m       } else if (name.includes("sales") || intents.includes("pricing") || intents.includes("demo")) {
+ [2m255[0m │ [35;1m│[0m         return "sales"
+ [2m256[0m │ [35;1m│[0m       }
+ [2m257[0m │ [35;1m│[0m       return "default"
+ [2m258[0m │ [35;1m│[0m     }
+ [2m259[0m │ [35;1m│[0m   
+ [2m260[0m │ [35;1m│[0m     private getDefaultSystemPrompt(botAnalysis: any): string {
+ [2m261[0m │ [35;1m│[0m       const domain = this.inferDomain(botAnalysis)
+ [2m262[0m │ [35;1m│[0m       const prompts = {
+ [2m263[0m │ [35;1m│[0m         hr: "You are an intelligent HR assistant. Help employees with leave requests, policies, and HR-related questions. Be professional, helpful, and proactive in your responses.",
+ [2m264[0m │ [35;1m│[0m         it: "You are an IT support assistant. Help users with technical issues, password resets, and system access. Provide clear, step-by-step guidance and escalate complex issues when needed.",
+ [2m265[0m │ [35;1m│[0m         sales:
+ [2m266[0m │ [35;1m│[0m           "You are a sales assistant. Help qualify leads, provide product information, and schedule demos. Be engaging, informative, and focused on understanding customer needs.",
+ [2m267[0m │ [35;1m│[0m         default:
+ [2m268[0m │ [35;1m│[0m           "You are a helpful business assistant. Provide accurate information, assist with common tasks, and maintain a professional, friendly tone in all interactions.",
+ [2m269[0m │ [35;1m│[0m       }
+ [2m270[0m │ [35;1m│[0m       return prompts[domain as keyof typeof prompts] || prompts.default
+ [2m271[0m │ [35;1m│[0m     }
+ [2m272[0m │ [35;1m╰[0m[35;1m─[0m[35;1m▶[0m }
+     ╰────
+    at BuildError (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/next@15.2.4_@opentelemetry+api@1.9.0_react-dom@19.0.0_react@19.0.0__react@19.0.0/node_modules/next/dist/client/components/react-dev-overlay/ui/container/build-error.js:43:41)
+    at react-stack-bottom-frame (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.0.0_react@19.0.0/node_modules/react-dom/cjs/react-dom-client.development.js:22429:20)
+    at renderWithHooks (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.0.0_react@19.0.0/node_modules/react-dom/cjs/react-dom-client.development.js:5758:22)
+    at updateFunctionComponent (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.0.0_react@19.0.0/node_modules/react-dom/cjs/react-dom-client.development.js:8019:19)
+    at beginWork (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.0.0_react@19.0.0/node_modules/react-dom/cjs/react-dom-client.development.js:9684:18)
+    at runWithFiberInDEV (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.0.0_react@19.0.0/node_modules/react-dom/cjs/react-dom-client.development.js:544:16)
+    at performUnitOfWork (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.0.0_react@19.0.0/node_modules/react-dom/cjs/react-dom-client.development.js:15045:22)
+    at workLoopSync (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.0.0_react@19.0.0/node_modules/react-dom/cjs/react-dom-client.development.js:14871:41)
+    at renderRootSync (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.0.0_react@19.0.0/node_modules/react-dom/cjs/react-dom-client.development.js:14851:11)
+    at performWorkOnRoot (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.0.0_react@19.0.0/node_modules/react-dom/cjs/react-dom-client.development.js:14335:13)
+    at performWorkOnRootViaSchedulerTask (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/react-dom@19.0.0_react@19.0.0/node_modules/react-dom/cjs/react-dom-client.development.js:15932:7)
+    at MessagePort.performWorkUntilDeadline (webpack-internal:///(pages-dir-browser)/./node_modules/.pnpm/scheduler@0.25.0/node_modules/scheduler/cjs/scheduler.development.js:44:48)
