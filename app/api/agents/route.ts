@@ -1,7 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { DatabaseService } from '@/lib/database-service'
 import { AgenticAIEngine } from '@/lib/agentic-ai-engine'
-import { ReplitAgentHostingService } from "../../../lib/replit-agent-hosting"
 import { createClient } from '@supabase/supabase-js'
 
 const supabase = createClient(
