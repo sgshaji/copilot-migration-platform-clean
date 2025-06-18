@@ -228,7 +228,7 @@ Respond in JSON format:
     } catch (error) {
       console.warn("AI intent analysis failed, using static analysis:", error)
       // Disable AI for this session if model is unavailable
-      if (error.message?.includes('No Inference Provider available')) {
+      if (typeof error === "object" && error && "message" in error && typeof (error as any).message === "string" && (error as any).message.includes('No Inference Provider available')) {
         console.log("🔄 AI model unavailable, disabling AI features for this session")
         this.hfClient = null
       }
@@ -302,7 +302,7 @@ Respond in JSON format:
         console.warn(`⚠️ Skill ${skill.name} failed:`, error)
         return {
           success: false,
-          data: { error: error.message },
+          data: { error: (typeof error === "object" && error && "message" in error && typeof (error as any).message === "string") ? (error as any).message : String(error) },
           insights: [`Skill ${skill.name} encountered an error`],
           nextActions: [],
           confidence: 0
@@ -357,7 +357,7 @@ Format with clear sections and actionable insights.`
     } catch (error) {
       console.warn("AI response synthesis failed, using static response:", error)
       // Disable AI for this session if model is unavailable
-      if (error.message?.includes('No Inference Provider available')) {
+      if (typeof error === "object" && error && "message" in error && typeof (error as any).message === "string" && (error as any).message.includes('No Inference Provider available')) {
         console.log("🔄 AI model unavailable, using static responses")
         this.hfClient = null
       }
