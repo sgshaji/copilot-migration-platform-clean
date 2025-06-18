@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server"
-import { AgenticAIEngine } from "@/lib/agentic-ai-engine"
+import { ReplitAgentHostingService } from "../../../../lib/replit-agent-hosting"
 
 export async function POST(
   request: NextRequest,
